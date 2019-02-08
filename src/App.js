@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import UserInput from './UserInput/UserInput';
+import UserOutput from './UserOutput/UserOutput';
+
 import './App.css';
 
 class App extends Component {
+
+    state = {
+        userName: [
+            {name: "Frank"},
+            {name: "the 2nd paragraph of ipsum lorem...."}
+        ]
+    }
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            Hi, I'm Frank!
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <UserInput />
+          <UserOutput name={this.state.userName[0].name}/>
+          <UserOutput name={this.state.userName[1].name}/>
         </header>
       </div>
     );
